@@ -11,15 +11,14 @@ public class TicketSeller {
         return ticketOffice;
     }
 
-    public void exchangeToTicket(Audience audience) {
+    public void sellTo(Audience audience) {
         Ticket ticket = ticketOffice.getTicket();
-        audience.getBag().setTicket(ticket);
-    }
-
-    public void sellTicket(Audience audience) {
-        Ticket ticket = ticketOffice.getTicket();
-        audience.getBag().minusAmount(ticket.getFee());
-        ticketOffice.plusAmount(ticket.getFee());
-        audience.getBag().setTicket(ticket);
+        if (audience.hasInvitation()) {
+            audience.getBag().setTicket(ticket);
+        } else {
+            audience.getBag().minusAmount(ticket.getFee());
+            ticketOffice.plusAmount(ticket.getFee());
+            audience.getBag().setTicket(ticket);
+        }
     }
 }
