@@ -10,4 +10,8 @@ public class Audience {
     public Bag getBag() {
         return bag;
     }
+
+    public boolean hasInvitation() {
+        return getBag().hasInvitation();
+    }
 }
