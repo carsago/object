@@ -24,4 +24,14 @@ public class Bag {
     public void plusAmount(Long amount) {
         amount += amount;
     }
+
+    public Long hold() {
+        if (hasInvitation()) {
+            setTicket(ticket);
+            return 0L;
+        }
+        setTicket(ticket);
+        minusAmount(ticket.getFee());
+        return ticket.getFee();
+    }
 }
