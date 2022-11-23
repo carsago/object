@@ -16,4 +16,6 @@ public class RegularPhone extends Phone {
     protected Money calculateCallFee(Call call) {
         return amount.times(call.getDuration().getSeconds() / seconds.getSeconds());
     }
+
+
 }
