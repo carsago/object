@@ -3,14 +3,15 @@ package app.chap10;
 import app.chap2.movie.Money;
 import java.time.Duration;
 
-public class NightDiscountPhone extends AbstractPhone {
+public class NightDiscountPhone extends Phone {
     private static final int LATE_NIGHT_HOUR = 22;
 
     private Money nightlyAmount;
     private Money regularAmount;
     private Duration seconds;
 
-    public NightDiscountPhone(Money nightlyAmount, Money regularAmount, Duration seconds) {
+    public NightDiscountPhone(double taxRate, Money nightlyAmount, Money regularAmount, Duration seconds) {
+        super(taxRate);
         this.nightlyAmount = nightlyAmount;
         this.regularAmount = regularAmount;
         this.seconds = seconds;
