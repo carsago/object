@@ -8,6 +8,10 @@ public class Money {
 
     private final BigDecimal amount;
 
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
     public static Money wons(long amount) {
         return new Money(BigDecimal.valueOf(amount));
     }
