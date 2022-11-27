@@ -21,6 +21,22 @@ public class GradeLecture extends Lecture{
         return super.evaluate() +", " + gradesStatistics();
     }
 
+    public double average(String gradeName) {
+        return grades.stream()
+                .filter(each -> each.isName(gradeName))
+                .findFirst()
+                .map(this::gradeAverage)
+                .orElse(0d);
+    }
+
+    private double gradeAverage(Grade grade) {
+        return getScores().stream()
+                .filter(grade::include)
+                .mapToInt(Integer::intValue)
+                .average()
+                .orElse(0);
+    }
+
     private String gradesStatistics() {
         return grades.stream()
                 .map(this::format)
